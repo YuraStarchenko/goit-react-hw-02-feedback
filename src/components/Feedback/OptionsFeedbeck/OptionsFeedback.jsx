@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import { List, Item, Btn } from './OptionsFeedback.styled.js';
 
-export const OptionsFeedback = ({ options, feedbackClick }) => {
+export const OptionsFeedback = ({ options, onLeaveFeedback }) => {
   return (
     <List>
-      {options.map((el, index) => (
-        <Item key={index}>
-          <Btn type="button" onClick={feedbackClick}>
-            {el}
+      {options.map(value => (
+        <Item key={value}>
+          <Btn type="button" value={value} onClick={onLeaveFeedback}>
+            {value[0].toUpperCase() + value.slice(1)}
           </Btn>
         </Item>
       ))}
@@ -17,5 +17,5 @@ export const OptionsFeedback = ({ options, feedbackClick }) => {
 
 OptionsFeedback.propTypes = {
   options: PropTypes.array.isRequired,
-  feedbackClick: PropTypes.func.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
