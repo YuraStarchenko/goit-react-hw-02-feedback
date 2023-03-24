@@ -1,12 +1,21 @@
 import PropTypes from 'prop-types';
+import { List, Item, Btn } from './OptionsFeedback.styled.js';
 
-export const OptionsFeedback = ({ step }) => {
+export const OptionsFeedback = ({ options, feedbackClick }) => {
   return (
-    <div>
-      <button type="button">Good {step}</button>
-      <button type="button">Neutral {step}</button>
-      <button type="button">Bad {step}</button>
-    </div>
+    <List>
+      {options.map((el, index) => (
+        <Item key={index}>
+          <Btn type="button" onClick={feedbackClick}>
+            {el}
+          </Btn>
+        </Item>
+      ))}
+    </List>
   );
 };
 
+OptionsFeedback.propTypes = {
+  options: PropTypes.array.isRequired,
+  feedbackClick: PropTypes.func.isRequired,
+};

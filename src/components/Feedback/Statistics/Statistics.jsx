@@ -1,22 +1,20 @@
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Paragraph } from './Statistic.styled.js';
 
-export const Statistics = ({ good, neutral, bad, total, percent }) => {
+export const Statistics = ({ good, neutral, bad, }) => {
   return (
-    <div>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>Total: {total}</p>
-      <p>Positive feedback: {percent}%</p>
-    </div>
+    <>
+      <Paragraph>Good: {good}</Paragraph>
+      <Paragraph>Neutral: {neutral}</Paragraph>
+      <Paragraph>Bad: {bad}</Paragraph>
+    </>
   );
 };
 
 Statistics.propTypes = {
-  Good: PropTypes.number.isRequired,
-  Neutral: PropTypes.number.isRequired,
-  Bad: PropTypes.number.isRequired,
-  Total: PropTypes.number.isRequired,
-  percent: PropTypes.number.isRequired,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
 };
 

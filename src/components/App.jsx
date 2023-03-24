@@ -1,8 +1,9 @@
 import { Component } from 'react';
-import { GlobalStyle } from '../GlobalStyle';
 import { Container } from './Container.styled';
+import { GlobalStyle } from '../GlobalStyle';
 import { Statistics } from './Feedback/Statistics/Statistics';
 import { OptionsFeedback } from './Feedback/OptionsFeedbeck/OptionsFeedback';
+import { Section } from './Feedback/Section/Section';
 
 export class App extends Component {
   state = {
@@ -11,11 +12,28 @@ export class App extends Component {
     bad: 0,
   };
 
+  feedbackBtnClick = event => {
+    const value = event.target.textContent;
+    this.setState(prevState => {
+      return {
+        [value]: prevState[value] + 1,
+      };
+    });
+  };
+
   render() {
+    const { good, bad, neutral } = this.state;
     return (
       <Container>
-        <OptionsFeedback />
-        <Statistics />
+        <Section title={'Please leave feedback'}>
+          <OptionsFeedback
+            feedbackClick={this.feedbackBtnClick}
+            options={Object.keys(this.state)}
+          />
+        </Section>
+        <Section title={'Statistics'}>
+          <Statistics good={good} neutral={neutral} bad={bad} />
+        </Section>
         <GlobalStyle />
       </Container>
     );
