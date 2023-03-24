@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Paragraph = styled.p`
+export const Text = styled.p`
   margin: 5px 10px;
   display: flex;
   border: solid 2px #fbdddd;
@@ -9,6 +9,3 @@ export const Paragraph = styled.p`
   font-weight: 600;
 `;
 
-export const Statistic = styled.div`
-  margin: 10px 0;
-`;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Sections = styled.p`
+export const Sections = styled.div`
   margin-bottom: 10px;
   text-align: center;
   border: solid 3px #fbdddd;

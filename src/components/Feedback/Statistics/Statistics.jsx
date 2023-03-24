@@ -1,6 +1,6 @@
-import React from 'react';
+
 import PropTypes from 'prop-types';
-import { Paragraph, Statistic, B } from './Statistic.styled.js';
+import { Text } from './Statistic.styled.js';
 
 export const Statistics = ({
   good,
@@ -10,13 +10,13 @@ export const Statistics = ({
   positivePercentage,
 }) => {
   return (
-    <Statistic>
-      <Paragraph>Good: {good}</Paragraph>
-      <Paragraph>Neutral: {neutral}</Paragraph>
-      <Paragraph>Bad: {bad}</Paragraph>
-      <Paragraph>Total: {total}</Paragraph>
-      <Paragraph>Positive feedback: {positivePercentage}%</Paragraph>
-    </Statistic>
+    <>
+      <Text>Good: {good}</Text>
+      <Text>Neutral: {neutral}</Text>
+      <Text>Bad: {bad}</Text>
+      <Text>Total: {total}</Text>
+      <Text>Positive feedback: {positivePercentage} %</Text>
+    </>
   );
 };
 
